@@ -4,7 +4,7 @@ import screen
 
 
 def draw_train(scrn):
-    train = {"x_val": 500, "y_val": 500}
+    train = {"x_val": 240, "y_val": 240}
     consts.TRAIN = pygame.transform.scale(consts.TRAIN, (100, 100))
     scrn.blit(consts.TRAIN, (240, 240))
     pygame.display.flip()
