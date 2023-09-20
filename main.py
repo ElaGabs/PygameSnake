@@ -2,6 +2,7 @@ import pygame
 import sys
 import random
 import consts
+import screen
 
 pygame.init()
 
@@ -72,7 +73,7 @@ class Food(object):
 
     def draw(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (consts.GRID_SIZE, consts.GRID_SIZE))
-        pygame.draw.rect(surface, self.color, r)
+        pygame.draw.rect(surface, consts.CORAL, r)
         pygame.draw.rect(surface, consts.BLUE2, r, 1)
 
 
