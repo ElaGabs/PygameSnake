@@ -1,6 +1,7 @@
 import pygame
 import sys
 import random
+import consts
 
 pygame.init()
 
@@ -10,7 +11,7 @@ class Snake(object):
         self.length = 1
         self.positions = [((consts.WIDTH / 2), (consts.HEIGHT / 2))]
         self.direction = random.choice([consts.UP, consts.DOWN, consts.LEFT, consts.RIGHT])
-        self.color = CORAL
+        self.color = consts.CORAL
 
     def get_head_position(self):
         return self.positions[0]
@@ -42,7 +43,7 @@ class Snake(object):
         for p in self.positions:
             r = pygame.Rect((p[0], p[1]), (consts.GRID_SIZE, consts.GRID_SIZE))
             pygame.draw.rect(surface, self.color, r)
-            pygame.draw.rect(surface, BLUE2, r, 1)
+            pygame.draw.rect(surface, consts.BLUE2, r, 1)
 
     def handle_keys(self):
         for event in pygame.event.get():
@@ -51,13 +52,13 @@ class Snake(object):
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
-                    self.turn(UP)
+                    self.turn(consts.UP)
                 elif event.key == pygame.K_DOWN:
-                    self.turn(DOWN)
+                    self.turn(consts.DOWN)
                 elif event.key == pygame.K_LEFT:
-                    self.turn(LEFT)
+                    self.turn(consts.LEFT)
                 elif event.key == pygame.K_RIGHT:
-                    self.turn(RIGHT)
+                    self.turn(consts.RIGHT)
 
 
 class Food(object):
@@ -114,7 +115,7 @@ def main():
         snake.draw(surface)
         food.draw(surface)
         screen.blit(surface, (0, 0))
-        text = font.render("Score {0}".format(score), True, BLACK)
+        text = consts.font.render("Score {0}".format(score), True, consts.BLACK)
         screen.blit(text, (5, 10))
         pygame.display.update()
 
