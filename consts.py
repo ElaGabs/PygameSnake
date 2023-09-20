@@ -78,5 +78,18 @@ TRAIN = pygame.transform.scale(TRAIN, (TRAIN_HEIGHT, TRAIN_WIDTH))
 TRAIN_CART = pygame.image.load("photos/train_cart.png")
 TRAIN_CART = pygame.transform.scale(TRAIN_CART, (TRAIN_HEIGHT, TRAIN_WIDTH))
 
+TITLE1 = "WELCOME!"
+TITLE2 =  "to the snake train game :)"
+TITLE1_SIZE = int(0.15 * WIDTH)
+TITLE_COLOR =(0,0,0)
+TITLE_LOCATION1 = \
+    (0.15 * WIDTH, HEIGHT / 6 - (TITLE1_SIZE / 6))
+FONT_NAME = "Calibri"
+
+TITLE2_SIZE = int(0.07 * WIDTH)
+TITLE_LOCATION2 = \
+    (0.15 * WIDTH, HEIGHT / 3  - (TITLE2_SIZE / 6))
+
+
 
 

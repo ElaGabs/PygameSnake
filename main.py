@@ -1,9 +1,12 @@
 import pygame
 import sys
 import random
-import consts
-import screen
 
+import loading_bar
+import consts
+import menu
+import screen
+from button import Button
 pygame.init()
 
 
@@ -94,7 +97,7 @@ def drawGrid(surface):
 
 def main():
     pygame.init()
-
+    menu.Button
     clock = pygame.time.Clock()
     screen = pygame.display.set_mode((consts.WIDTH, consts.HEIGHT), 0, 32)
 
