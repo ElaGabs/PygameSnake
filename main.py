@@ -1,6 +1,8 @@
 import pygame
 import sys
 import random
+
+import ImageEdit
 import consts
 
 pygame.init()
@@ -71,9 +73,13 @@ class Food(object):
         self.position = (random.randint(0, consts.GRID_WIDTH - 1) * consts.GRID_SIZE, random.randint(0, consts.GRID_HEIGHT - 1) * consts.GRID_SIZE)
 
     def draw(self, surface):
-        r = pygame.Rect((self.position[0], self.position[1]), (consts.GRID_SIZE, consts.GRID_SIZE))
-        pygame.draw.rect(surface, self.color, r)
-        pygame.draw.rect(surface, consts.BLUE2, r, 1)
+        # r = pygame.Rect((self.position[0], self.position[1]), (consts.GRID_SIZE, consts.GRID_SIZE))
+        # pygame.draw.rect(surface, self.color, r)
+        # pygame.draw.rect(surface, consts.BLUE2, r, 1)
+        person = ImageEdit.pick_rand_npc()
+        surface.blit(person, ((self.position[0], self.position[1]), (consts.GRID_SIZE, consts.GRID_SIZE)))
+        pygame.display.update()
+
 
 
 def drawGrid(surface):

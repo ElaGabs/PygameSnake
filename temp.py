@@ -1,80 +1,116 @@
 import pygame
+import random
 
+# Initialize pygame
+pygame.init()
 
-WIDTH = 480
-HEIGHT = 480
-BLUE = (152, 245, 255)
-BLUE2 = (121, 205, 205)
-CORAL = (240, 128, 128)
-BLACK = (0, 0, 0)
-RED = (255, 0, 0)
+# Constants
+SCREEN_WIDTH = 400
+SCREEN_HEIGHT = 400
 GRID_SIZE = 20
-GRID_WIDTH = WIDTH / GRID_SIZE
-GRID_HEIGHT = HEIGHT / GRID_SIZE
+GRID_WIDTH = SCREEN_WIDTH // GRID_SIZE
+GRID_HEIGHT = SCREEN_HEIGHT // GRID_SIZE
 
-UP = (0, -1)
-DOWN = (0, 1)
-LEFT = (-1, 0)
-RIGHT = (1, 0)
-font = pygame.font.Font('freesansbold.ttf', 30)
+# Colors
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
 
+# Create the screen
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))   # screen
+pygame.display.set_caption("Snake Game") #screen
 
-length = 1
-positions = [((WIDTH / 2), (HEIGHT / 2))]
-direction = random.choice([UP, DOWN, LEFT, RIGHT])
-color = CORAL
+# Initialize the Snake
+snake = [(GRID_WIDTH // 2, GRID_HEIGHT // 2)] # snake
+snake_direction = (0, -1)  # Start moving up # snake
 
-
-def get_head_position(self):
-    return self.positions[0]
-
-
-def turn(self, point):
-    if self.length > 1 and (point[0] * -1, point[1] * -1) == self.direction:
-        return
-    else:
-        self.direction = point
+# Initialize the food
+food = (random.randint(0, GRID_WIDTH - 1), random.randint(0, GRID_HEIGHT - 1)) # food
 
 
-def move(self):
-    cur = self.get_head_position()
-    x, y = self.direction
-    new = (((cur[0] + (x * GRID_SIZE)) % WIDTH), (cur[1] + (y * GRID_SIZE)) % HEIGHT)
-    if len(self.positions) > 2 and new in self.positions[2:]:
-        self.reset()
-    else:
-        self.positions.insert(0, new)
-        if len(self.positions) > self.length:
-            self.positions.pop()
+def handle_user_events(snake_direction):
+    keys = pygame.key.get_pressed()
+    new_direction = snake_direction
+
+    # Check for arrow key input to change direction
+    if keys[pygame.K_UP] and snake_direction != (0, 1):
+        new_direction = (0, -1)
+    elif keys[pygame.K_DOWN] and snake_direction != (0, -1):
+        new_direction = (0, 1)
+    elif keys[pygame.K_LEFT] and snake_direction != (1, 0):
+        new_direction = (-1, 0)
+    elif keys[pygame.K_RIGHT] and snake_direction != (-1, 0):
+        new_direction = (1, 0)
+
+    snake_direction = new_direction
+
+    return snake_direction
 
 
-def reset(self):
-    self.length = 1
-    self.positions = [((WIDTH / 2), (HEIGHT / 2))]
-    self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
-    score = 0
-
-
-def draw(self, surface):
-    for p in self.positions:
-        r = pygame.Rect((p[0], p[1]), (GRID_SIZE, GRID_SIZE))
-        pygame.draw.rect(surface, self.color, r)
-        pygame.draw.rect(surface, BLUE2, r, 1)
-
-
-def handle_keys(self):
+# Game loop
+running = True # main ⬇️
+while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                self.turn(UP)
-            elif event.key == pygame.K_DOWN:
-                self.turn(DOWN)
-            elif event.key == pygame.K_LEFT:
-                self.turn(LEFT)
-            elif event.key == pygame.K_RIGHT:
-                self.turn(RIGHT)
+            running = False
+
+    # keys = pygame.key.get_pressed()
+    # new_direction = snake_direction
+    #
+    # # Check for arrow key input to change direction
+    # if keys[pygame.K_UP] and snake_direction != (0, 1):
+    #     new_direction = (0, -1)
+    # elif keys[pygame.K_DOWN] and snake_direction != (0, -1):
+    #     new_direction = (0, 1)
+    # elif keys[pygame.K_LEFT] and snake_direction != (1, 0):
+    #     new_direction = (-1, 0)
+    # elif keys[pygame.K_RIGHT] and snake_direction != (-1, 0):
+    #     new_direction = (1, 0)
+
+    # Update snake direction
+    # snake_direction = new_direction
+    snake_direction = handle_user_events(snake_direction)
+
+    # Move the snake
+    head = (snake[0][0] + snake_direction[0], snake[0][1] + snake_direction[1])
+    snake.insert(0, head)
+
+    # Check for collisions with the food
+    if snake[0] == food:
+        food = (random.randint(0, GRID_WIDTH - 1), random.randint(0, GRID_HEIGHT - 1))
+    else:
+        snake.pop()
+
+    # Check for collisions with the walls
+    # if (
+    #     snake[0][0] < 0
+    #     or snake[0][0] >= GRID_WIDTH
+    #     or snake[0][1] < 0
+    #     or snake[0][1] >= GRID_HEIGHT
+    # ):
+    #     running = False
+
+    # Check for collisions with the snake's own body
+    if snake[0] in snake[1:]:
+        running = False
+
+    # Clear the screen
+    screen.fill(WHITE)
+
+    # Draw the snake
+    for segment in snake:
+        pygame.draw.rect(
+            screen, GREEN, (segment[0] * GRID_SIZE, segment[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE)
+        )
+
+    # Draw the food
+    pygame.draw.rect(
+        screen, RED, (food[0] * GRID_SIZE, food[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE)
+    )
+
+    pygame.display.flip()
+
+# # Quit pygame
+# pygame.quit()
 
 
