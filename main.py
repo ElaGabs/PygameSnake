@@ -2,6 +2,7 @@ import pygame
 import sys
 import random
 import consts
+import ImageEdit
 import screen
 
 pygame.init()
@@ -70,16 +71,18 @@ class Snake(object):
 class Food(object):
     def __init__(self):
         self.position = (0, 0)
-        self.color = consts.CORAL
+        self.color = ImageEdit.pick_rand_npc()
         self.randomize_position()
 
     def randomize_position(self):
-        self.position = (random.randint(0, consts.GRID_WIDTH - 1) * consts.GRID_SIZE, random.randint(0, consts.GRID_HEIGHT - 1) * consts.GRID_SIZE)
+        self.position = (random.randint(0, consts.GRID_WIDTH - 1) * consts.GRID_SIZE,
+                         random.randint(0, consts.GRID_HEIGHT - 1) * consts.GRID_SIZE)
 
     def draw(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (consts.GRID_SIZE, consts.GRID_SIZE))
-        pygame.draw.rect(surface, consts.CORAL, r)
-        pygame.draw.rect(surface, consts.BLUE2, r, 1)
+        # pygame.draw.rect(surface, consts.CORAL, r)
+        # pygame.draw.rect(surface, consts.BLUE2, r, 1)
+        surface.blit(self.color, r)
 
 
 def drawGrid(surface):
