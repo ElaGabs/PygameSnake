@@ -41,10 +41,12 @@ class Snake(object):
         score = 0
 
     def draw(self, surface):
+# r = pygame.Rect((p[0], p[1]), (GRID_SIZE, GRID_SIZE))
+# pygame.draw.rect(surface, self.color, r)
+# pygame.draw.rect(surface, BLUE2, r, 1)
         for p in self.positions:
-            r = pygame.Rect((p[0], p[1]), (consts.GRID_SIZE, consts.GRID_SIZE))
-            pygame.draw.rect(surface, self.color, r)
-            pygame.draw.rect(surface, consts.BLUE2, r, 1)
+            self.image = consts.TRAIN
+            surface.blit(self.image, (p[0], p[1]))
 
     def handle_keys(self):
         for event in pygame.event.get():

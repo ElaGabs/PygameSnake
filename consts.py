@@ -1,8 +1,8 @@
 import pygame
 pygame.init()
 
-TRAIN_HEIGHT = 200
-TRAIN_WIDTH = 200
+TRAIN_HEIGHT = 50
+TRAIN_WIDTH = 50
 
 NPC_HEIGHT = 50
 NPC_WIDTH = 50
