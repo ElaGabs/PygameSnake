@@ -1,4 +1,4 @@
-https://github.com/ElaGabs/PygameSnake.gitimport pygame
+# https://github.com/ElaGabs/PygameSnake.gitimport pygame
 import sys
 import random
 pygame.init()
