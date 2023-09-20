@@ -1,7 +1,7 @@
 import pygame
 pygame.init()
 
-TRAIN_SIZE = 50
+TRAIN_SIZE = 80
 
 NPC_SIZE = 40
 
