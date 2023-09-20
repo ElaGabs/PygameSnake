@@ -1,12 +1,14 @@
 # https://github.com/ElaGabs/PygameSnake.gitimport pygame
 import sys
 import random
+import consts
+
 pygame.init()
 
 class Snake(object):
     def __int__(self):
         self.length = 1
-        self.positions = [((WIDTH/2), (HEIGHT/2))]
+        self.positions = [((consts.SCREEN_WIDTH/2), (consts.SCREEN_LENGTH/2))]
         self.direction = random.choice([UP, DOWN, RIGHT, LEFT])
         self.color = CORAL
 
@@ -49,7 +51,7 @@ def draw_grid(surface):
 
 #Variables
 #lengths
-WIDTH = 480
+WIDTH = 480 #consts written
 HEIGHT = 480
 GRID_SIZE = 20
 GRID_WIDTH = WIDTH/GRID_SIZE
@@ -68,7 +70,7 @@ LEFT = (-1, 0)
 #main game loop
 def main():
     clock= pygame.time.Clock()
-    screen = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
+    screen = pygame.display.set_mode((consts.SCREEN_WIDTH, consts.SCREEN_LENGTH), 0, 32)
 
     surface = pygame.Surface(screen.get_size())
     surface = surface.convert()
