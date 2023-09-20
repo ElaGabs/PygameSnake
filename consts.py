@@ -1,8 +1,5 @@
 import pygame
 
-#screen
-SCREEN_LENGTH = 480
-SCREEN_WIDTH = 480
 
 #NPC generate
 npc1 = pygame.image.load("LEGO_1.png")
@@ -29,6 +26,26 @@ TRAIN_WIDTH = 200
 
 # NPC_HEIGHT = 50
 # NPC_WIDTH = 50
+
+#screen
+WIDTH = 480
+HEIGHT = 480
+
+BLUE = (152,245,255)
+BLUE2 = (121,205,205)
+CORAL = (240,128,128)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+
+GRID_SIZE = 20
+GRID_WIDTH = WIDTH / GRID_SIZE
+GRID_HEIGHT = HEIGHT / GRID_SIZE
+
+UP = (0, -1)
+DOWN = (0, 1)
+LEFT = (-1, 0)
+RIGHT = (1, 0)
+font = pygame.font.Font('freesansbold.ttf', 30)
 
 
 
