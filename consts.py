@@ -70,6 +70,7 @@ npc13 = pygame.transform.scale(npc13, (NPC_HEIGHT, NPC_WIDTH))
 npc14 = pygame.image.load("photos/LEGO_14.png")
 npc14 = pygame.transform.scale(npc14, (NPC_HEIGHT, NPC_WIDTH))
 
+npc_list = [npc1, npc2, npc3, npc4, npc5, npc6, npc7, npc8, npc9, npc10, npc11, npc12, npc13, npc14]
 
 # train
 TRAIN = pygame.image.load("photos/train.png")
