@@ -21,13 +21,13 @@ def draw_train(scrn):
 #     pygame.display.flip()
 #     return train
 
-def add_to_npc_list(npc1, npc2, npc3, npc4, npc5):
-    npc_list = [npc1, npc2, npc3, npc4, npc5]
+def add_to_npc_list():
+    npc_list = [consts.npc1, consts.npc2, consts.npc3, consts.npc4, consts.npc5, consts.npc6, consts.npc7, consts.npc8, consts.npc9, consts.npc10, consts.npc11,consts.npc12]
     return npc_list
 
 
 def pick_rand_npc(npc_list):
-    npc_list = add_to_npc_list(consts.npc1, consts.npc2, consts.npc3, consts.npc4, consts.npc5)
+    npc_list = add_to_npc_list()
     choose_npc = random.choice(npc_list)
     return choose_npc
 
