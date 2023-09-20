@@ -71,11 +71,23 @@ npc14 = pygame.transform.scale(npc14, (NPC_SIZE, NPC_SIZE))
 npc_list = [npc1, npc2, npc3, npc4, npc5, npc6, npc7, npc8, npc9, npc10, npc11, npc12, npc13, npc14]
 
 # train
-TRAIN = pygame.image.load("photos/train.png")
-TRAIN = pygame.transform.scale(TRAIN, (TRAIN_SIZE, TRAIN_SIZE))
+TRAIN_UP = pygame.image.load("photos/train.png")
+TRAIN_UP = pygame.transform.scale(TRAIN_UP, (TRAIN_SIZE, TRAIN_SIZE))
+TRAIN_DOWN = pygame.image.load("photos/train.png")
+TRAIN_DOWN = pygame.transform.scale(TRAIN_DOWN, (TRAIN_SIZE, TRAIN_SIZE))
+TRAIN_LEFT = pygame.image.load("photos/train.png")
+TRAIN_LEFT = pygame.transform.scale(TRAIN_LEFT, (TRAIN_SIZE, TRAIN_SIZE))
+TRAIN_RIGHT = pygame.image.load("photos/train.png")
+TRAIN_RIGHT = pygame.transform.scale(TRAIN_RIGHT, (TRAIN_SIZE, TRAIN_SIZE))
 
-TRAIN_CART = pygame.image.load("photos/train_cart.png")
-TRAIN_CART = pygame.transform.scale(TRAIN_CART, (TRAIN_SIZE, TRAIN_SIZE))
+CART_UP = pygame.image.load("photos/train_cart.png")
+CART_UP = pygame.transform.scale(CART_UP, (TRAIN_SIZE, TRAIN_SIZE))
+CART_DOWN = pygame.image.load("photos/train_cart.png")
+CART_DOWN = pygame.transform.scale(CART_DOWN, (TRAIN_SIZE, TRAIN_SIZE))
+CART_LEFT = pygame.image.load("photos/train_cart.png")
+CART_LEFT = pygame.transform.scale(CART_LEFT, (TRAIN_SIZE, TRAIN_SIZE))
+CART_RIGHT = pygame.image.load("photos/train_cart.png")
+CART_RIGHT = pygame.transform.scale(CART_RIGHT, (TRAIN_SIZE, TRAIN_SIZE))
 
 
 
