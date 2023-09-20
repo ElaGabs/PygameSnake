@@ -35,7 +35,8 @@ def pick_rand_npc(npc_list):
 def draw_npc(scrn, npc):
     npc = pick_rand_npc(npc_list)
     npc = {"x_val": 240, "y_val": 240}
-    consts.npc = pygame.transform.scale(consts.npc, (100, 100))
-    scrn.blit(consts.npc, (100, 100))
+    for i in range(5):
+        consts.npc = pygame.transform.scale(consts.npc, (100, 100))
+        scrn.blit(consts.npc, (100, 100))
     pygame.display.flip()
     # return train
