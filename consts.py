@@ -3,7 +3,7 @@ pygame.init()
 
 TRAIN_SIZE = 80
 
-NPC_SIZE = 40
+NPC_SIZE = 50
 
 # screen
 WIDTH = 480
