@@ -75,8 +75,8 @@ class Food(object):
         self.randomize_position()
 
     def randomize_position(self):
-        self.position = (random.randint(0, consts.GRID_WIDTH - 1) * consts.GRID_SIZE,
-                         random.randint(0, consts.GRID_HEIGHT - 1) * consts.GRID_SIZE)
+        self.position = (random.randint(0, consts.GRID_WIDTH - consts.NPC_SIZE) * consts.GRID_SIZE,
+                         random.randint(0, consts.GRID_HEIGHT - consts.NPC_SIZE) * consts.GRID_SIZE)
 
     def draw(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (consts.GRID_SIZE, consts.GRID_SIZE))
