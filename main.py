@@ -42,13 +42,15 @@ class Snake(object):
         score = 0
 
     def draw(self, surface):
+        pass
+
+
         # r = pygame.Rect((p[0], p[1]), (consts.GRID_SIZE, consts.GRID_SIZE))
         # pygame.draw.rect(surface, self.color, r)
-        # pygame.draw.rect(surface, consts.BLUE2, r, 1)
-        for p in self.positions:
-            self.image = consts.CART_UP
-            surface.blit(self.image, (p[0], p[1]))
-
+        # pygame.draw.rect(surface, BLUE2, r, 1)
+        # for p in self.positions:
+        #     self.image = consts.TRAIN_CART
+        #     surface.blit(self.image, (p[0], p[1]))
 
     def handle_keys(self):
         for event in pygame.event.get():
@@ -75,7 +77,6 @@ class Food(object):
     def randomize_position(self):
         self.position = (random.randint(0, consts.GRID_WIDTH - 1) * consts.GRID_SIZE,
                          random.randint(0, consts.GRID_HEIGHT - 1) * consts.GRID_SIZE)
-        self.color = ImageEdit.pick_rand_npc()
 
     def draw(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (consts.GRID_SIZE, consts.GRID_SIZE))

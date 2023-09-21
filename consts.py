@@ -89,5 +89,18 @@ CART_LEFT = pygame.transform.scale(CART_LEFT, (TRAIN_SIZE, TRAIN_SIZE))
 CART_RIGHT = pygame.image.load("photos/cart_right.png")
 CART_RIGHT = pygame.transform.scale(CART_RIGHT, (TRAIN_SIZE, TRAIN_SIZE))
 
+TITLE1 = "WELCOME!"
+TITLE2 =  "to the snake train game :)"
+TITLE1_SIZE = int(0.15 * WIDTH)
+TITLE_COLOR =(0,0,0)
+TITLE_LOCATION1 = \
+    (0.15 * WIDTH, HEIGHT / 6 - (TITLE1_SIZE / 6))
+FONT_NAME = "Calibri"
+
+TITLE2_SIZE = int(0.07 * WIDTH)
+TITLE_LOCATION2 = \
+    (0.15 * WIDTH, HEIGHT / 3  - (TITLE2_SIZE / 6))
+
+
 
 
